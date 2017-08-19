@@ -1,11 +1,36 @@
 :root {
   --root-three: 1.73205080756887729352744634150587236694280;
   /* Change the size of the hexagon here */
-  --hex-diameter: 30em;
+  --hex-diameter: 7em;
   --hex-radius: calc(var(--hex-diameter) / 2);
   --hex-height: calc(var(--hex-radius) * var(--root-three));
   /* Change the color of the hexagon here */
-  --hex-color: #ccc;
+  --hex-color: LightSteelBlue;
+  /* Change the hover color of the hexagon here */
+  --hex-hover-color: #333;
+  /* Change the size of the grid margin here */
+  --hex-grid-margin: .2em;
+}
+
+.hex-grid ul {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+.hex-grid ul:nth-child(odd) {
+  position: relative;
+  margin-top: calc((var(--hex-height) / 2) + (var(--hex-grid-margin) / 2));
+}
+
+.hex-grid ul:nth-child(even) {
+  position: relative;
+}
+
+.hex-grid li {
+  margin: var(--hex-grid-margin);
 }
 
 .hex:before {
@@ -36,4 +61,21 @@
   border-bottom: calc(var(--hex-height) / 2) solid transparent;
   border-top: calc(var(--hex-height) / 2) solid transparent;
   border-left: calc(var(--hex-radius) / 2) solid var(--hex-color);
+}
+
+.hex.hover, .hex.hover:before, .hex.hover:after {
+  transition: .3s;
+  cursor: pointer;
+}
+
+.hex.hover:before {
+  border-right-color: var(--hex-hover-color);
+}
+
+.hex.hover {
+  background-color: var(--hex-hover-color);
+}
+
+.hex.hover:after {
+  border-left-color: var(--hex-hover-color);
 }
