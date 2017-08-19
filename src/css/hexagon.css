@@ -1,0 +1,39 @@
+:root {
+  --root-three: 1.73205080756887729352744634150587236694280;
+  /* Change the size of the hexagon here */
+  --hex-diameter: 30em;
+  --hex-radius: calc(var(--hex-diameter) / 2);
+  --hex-height: calc(var(--hex-radius) * var(--root-three));
+  /* Change the color of the hexagon here */
+  --hex-color: #ccc;
+}
+
+.hex:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: var(--hex-radius);
+  border-bottom: calc(var(--hex-height) / 2) solid transparent;
+  border-top: calc(var(--hex-height) / 2) solid transparent;
+  border-right: calc(var(--hex-radius) / 2) solid var(--hex-color);
+}
+
+.hex {
+  width: var(--hex-radius);
+  height: var(--hex-height);
+  background-color: var(--hex-color);
+  position: relative;
+  margin-left: calc(var(--hex-radius) / 2);
+}
+
+.hex:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: var(--hex-radius);
+  border-bottom: calc(var(--hex-height) / 2) solid transparent;
+  border-top: calc(var(--hex-height) / 2) solid transparent;
+  border-left: calc(var(--hex-radius) / 2) solid var(--hex-color);
+}
