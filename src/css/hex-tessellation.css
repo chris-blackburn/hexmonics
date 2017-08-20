@@ -1,0 +1,39 @@
+@import url("hexagon.css");
+
+:root {
+	/* Change the size of the grid margin here (area between each hexagon) */
+	--hex-grid-margin: .2em;
+}
+
+.hex-grid {
+	position: absolute;
+	float: left;
+	padding: calc(var(--hex-height) / 2) calc(var(--hex-diameter)) calc(var(--hex-height) / 2) var(--hex-radius);
+	border: 3px solid #ccc;
+	background-color: #e6f2ff;
+}
+
+.hex-grid ul {
+	list-style: none;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.hex-grid ul:nth-child(odd) {
+	position: relative;
+	margin-top: calc((var(--hex-height) / 2) + (var(--hex-grid-margin) / 2));
+}
+
+.hex-grid ul:nth-child(even) {
+	position: relative;
+}
+
+.hex-grid li {
+	margin: var(--hex-grid-margin) calc(var(--hex-grid-margin) / 2);
+}
+
+.hex-grid ul li:first-child {
+	margin-top: 0;
+}

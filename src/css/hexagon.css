@@ -1,44 +1,13 @@
 :root {
 	--root-three: 1.73205080756887729352744634150587236694280;
 	/* Change the size of the hexagon here */
-	--hex-diameter: 7em;
+	--hex-diameter: 6em;
 	--hex-radius: calc(var(--hex-diameter) / 2);
 	--hex-height: calc(var(--hex-radius) * var(--root-three));
 	/* Change the color of the hexagon here */
 	--hex-color: LightSteelBlue;
 	/* Change the hover color of the hexagon here */
-	--hex-hover-color: #333;
-	/* Change the size of the grid margin here */
-	--hex-grid-margin: .2em;
-}
-
-.hex-grid {
-	position: absolute;
-}
-
-.hex-grid ul {
-	list-style: none;
-	position: relative;
-	padding: 0;
-	margin: 0;
-	float: left;
-}
-
-.hex-grid ul:nth-child(odd) {
-	position: relative;
-	margin-top: calc((var(--hex-height) / 2) + (var(--hex-grid-margin) / 2));
-}
-
-.hex-grid ul:nth-child(even) {
-	position: relative;
-}
-
-.hex-grid li {
-	margin: var(--hex-grid-margin) calc(var(--hex-grid-margin) / 2);
-}
-
-.hex-grid ul li:first-child {
-	margin-top: 0;
+	--hex-hover-color: #99ff66;
 }
 
 .hex:before {
@@ -58,6 +27,16 @@
 	background-color: var(--hex-color);
 	position: relative;
 	margin-left: calc(var(--hex-radius) / 2);
+	text-align: center;
+
+	/* prevent highlighting */
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .hex:after {
