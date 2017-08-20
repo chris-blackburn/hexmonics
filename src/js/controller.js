@@ -13,14 +13,14 @@ $(document).ready(function() {
 	initHexHover();
 
 	$(".hex").on("mousedown", function() {
-		synth.triggerAttack($(this).attr("id"));
+		synth.triggerAttack($(this).data("note"));
 	}).on("mouseup", function() {
 		synth.triggerRelease();
 	}).on("mouseleave", function() {
 		synth.triggerRelease();
 	}).on("mouseenter", function() {
 		if (mouseDown) {
-			synth.triggerAttack($(this).attr("id"));
+			synth.triggerAttack($(this).data("note"));
 		}
 	});
 });

@@ -8,17 +8,29 @@
 	--hex-color: LightSteelBlue;
 	/* Change the hover color of the hexagon here */
 	--hex-hover-color: #99ff66;
+	/* Change the hover color of the hexagon here */
+	--hex-border-radius: .2em;
+}
+
+.hex:before, .hex:after {
+	content: "";
+	width: inherit; height: inherit;
+	background: inherit;
+	position: absolute;
+	right: 0;
+	border-radius: inherit;
 }
 
 .hex:before {
-	content: "";
-	width: 0;
-	height: 0;
-	position: absolute;
-	right: var(--hex-radius);
-	border-bottom: calc(var(--hex-height) / 2) solid transparent;
-	border-top: calc(var(--hex-height) / 2) solid transparent;
-	border-right: calc(var(--hex-radius) / 2) solid var(--hex-color);
+	-ms-transform: rotate(60deg); /* IE 9 */
+	-webkit-transform: rotate(60deg); /* Chrome, Safari, Opera */
+	transform: rotate(60deg);
+}
+
+.hex:after {
+	-ms-transform: rotate(-60deg); /* IE 9 */
+	-webkit-transform: rotate(-60deg); /* Chrome, Safari, Opera */
+	transform: rotate(-60deg);
 }
 
 .hex {
@@ -26,33 +38,17 @@
 	height: var(--hex-height);
 	background-color: var(--hex-color);
 	position: relative;
-	margin-left: calc(var(--hex-radius) / 2);
 	text-align: center;
+	display: inline-block;
+	transition: all 350ms;
+	/*left: calc(var(--hex-radius) / 2);*/
+	border-radius: var(--hex-border-radius)/calc(var(--hex-border-radius) / 2);
+	margin: 0 calc(var(--hex-radius) / 4);
 
-	/* prevent highlighting */
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+	pointer-events: all;
 }
 
-.hex:after {
-	content: "";
-	width: 0;
-	height: 0;
-	position: absolute;
-	left: var(--hex-radius);
-	border-bottom: calc(var(--hex-height) / 2) solid transparent;
-	border-top: calc(var(--hex-height) / 2) solid transparent;
-	border-left: calc(var(--hex-radius) / 2) solid var(--hex-color);
-}
-
-/* I had to create an extra class (.hover) as a workaround for not being able to target :after and :before in js*/
 .hex.hover, .hex.hover:before, .hex.hover:after {
-	transition: .3s;
 	cursor: pointer;
 }
 

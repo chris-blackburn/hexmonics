@@ -35,7 +35,7 @@ function createHarmonicTable() {
 		
 		// If it is an odd column, use the appropriate number of hexagons
 		for (j = 0; j < (oddColumn ? NUM_ODD_COLUMN_HEXAGONS : NUM_EVEN_COLUMN_HEXAGONS); j++)
-			column += `<li><div id="${NOTES[i][j]}" data-note="${NOTES[i][j]}" class="hex">${NOTES[i][j]}</div></li>`;
+			column += `<li><div data-note="${NOTES[i][j]}" class="hex"></div></li>`;
 
 		oddColumn = !oddColumn;
 		column += "</ul>";

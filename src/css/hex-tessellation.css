@@ -8,9 +8,28 @@
 .hex-grid {
 	position: absolute;
 	float: left;
-	padding: calc(var(--hex-height) / 2) calc(var(--hex-diameter)) calc(var(--hex-height) / 2) var(--hex-radius);
+	padding: calc(var(--hex-height) / 2) var(--hex-radius);
 	border: 3px solid #ccc;
+	border-radius: .2em;
 	background-color: #e6f2ff;
+	pointer-events: none;
+	line-height: 0;
+
+	/* prevent highlighting */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+            supported by Chrome and Opera */
+}
+
+.hex-grid br {
+	margin: 0;
+	padding: 0;
+	width: 0; height: 0;
+
 }
 
 .hex-grid ul {
@@ -19,15 +38,11 @@
 	padding: 0;
 	margin: 0;
 	float: left;
+	background: none;
 }
 
 .hex-grid ul:nth-child(odd) {
-	position: relative;
 	margin-top: calc((var(--hex-height) / 2) + (var(--hex-grid-margin) / 2));
-}
-
-.hex-grid ul:nth-child(even) {
-	position: relative;
 }
 
 .hex-grid li {
