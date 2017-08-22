@@ -2,6 +2,8 @@ function initView() {
 	createHarmonicTable();
 	initHexHover();
 	initRangeLabels();
+	initActiveToolClick();
+	
 }
 
 function createHarmonicTable() {
@@ -62,5 +64,17 @@ function initRangeLabels() {
 	// create a handler for any changes
 	$("input[type=range]").on("input change", function() {
 		$(this).siblings("output.range").text($(this).val());
+	});
+}
+
+function initActiveToolClick() {
+	$("#pattern-tools .hex").on("click", function() {
+		if ($(this).hasClass("active-tool")) {
+			$(this).removeClass("active-tool");
+		} else {
+			$("#pattern-tools .hex").not(this).removeClass("active-tool");
+
+			$(this).addClass("active-tool");
+		}
 	});
 }
