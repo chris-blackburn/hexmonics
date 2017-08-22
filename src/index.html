@@ -1,17 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hexmonics</title>
+	<title>Hexmonics</title>
 
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/Tone.min.js"></script>
-  <script type="text/javascript" src="js/view.js"></script>
-  <script type="text/javascript" src="js/controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/Tone.min.js"></script>
+	<script type="text/javascript" src="js/view.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
 </head>
 <body>
-  <div class="hex-grid">
-    
-  </div>
+	<div class="main">
+		<div class="wrapper">
+			<div id="control-panel">
+				<div id="pattern-tools">
+					<ul>
+						<li><div class="hex"></div></li>
+						<li><div class="hex"></div></li>
+						<li><div class="hex"></div></li>
+						<li><div class="hex"></div></li>
+						<li><div class="hex"></div></li>
+					</ul>
+				</div>
+				
+				<div style="display: table-cell; max-height: 100%; vertical-align: middle;">
+				<div id="editor-form">
+					<div class="input-field" style="width: 90%;">
+						<label for="bpm">BPM: </label>
+						<output class="range"></output><br>
+						<input type="range" name="bpm" id="bpm" min="24" max="400" value="130" style="width: 100%;">
+					</div>
+
+					<div class="input-field">
+						<label for="beats-per-bar">Beats Per Bar: </label>
+						<input type="number" name="beats-per-bar" id="beats-per-bar" min="0" value="4" style="width: 2em;">
+					</div>
+
+					<div class="input-field">
+						<label for="note-duration">Note Duration: </label><br>
+						<select name="note-duration" id="note-duration">
+							<option value="128">Double Whole Note</option>
+							<option value="64">Whole Note</option>
+							<option value="32">Half Note</option>
+							<option selected value="16">Quarter Note</option>
+							<option value="8">Eighth Note</option>
+							<option value="4">Sixteenth Note</option>
+							<option value="2">Thirty-second Note</option>
+							<option value="1">Sixty-fourth Note</option>
+						</select>
+					</div>
+				</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="wrapper">
+			<div class="harmonic-table"></div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,15 +1,18 @@
 :root {
 	--root-three: 1.73205080756887729352744634150587236694280;
 	/* Change the size of the hexagon here */
-	--hex-diameter: 6em;
+	--hex-diameter: 4.9em;
 	--hex-radius: calc(var(--hex-diameter) / 2);
 	--hex-height: calc(var(--hex-radius) * var(--root-three));
+
 	/* Change the color of the hexagon here */
-	--hex-color: LightSteelBlue;
+	--hex-background-color: #4d4d4d;
 	/* Change the hover color of the hexagon here */
 	--hex-hover-color: #99ff66;
+	/* Change the size of the grid margin here (area between each hexagon) */
+	--hex-grid-margin: calc(var(--hex-height) / 8);
 	/* Change the hover color of the hexagon here */
-	--hex-border-radius: .2em;
+	--hex-border-radius: calc(var(--hex-height) / 20);
 }
 
 .hex:before, .hex:after {
@@ -36,16 +39,17 @@
 .hex {
 	width: var(--hex-radius);
 	height: var(--hex-height);
-	background-color: var(--hex-color);
+	background-color: var(--hex-background-color);
 	position: relative;
 	text-align: center;
-	display: inline-block;
 	transition: all 350ms;
 	/*left: calc(var(--hex-radius) / 2);*/
 	border-radius: var(--hex-border-radius)/calc(var(--hex-border-radius) / 2);
-	margin: 0 calc(var(--hex-radius) / 4);
-
+	/* Divide the radius by 2 instead of 4 if you don't want tesselation or overlapping hexagons */
+	margin: var(--hex-grid-margin) calc((var(--hex-radius) / 4) + var(--hex-grid-margin) / 2);
+	line-height: 0;
 	pointer-events: all;
+	float: left;
 }
 
 .hex.hover, .hex.hover:before, .hex.hover:after {
@@ -53,13 +57,24 @@
 }
 
 .hex.hover:before {
-	border-right-color: var(--hex-hover-color);
+	border-right-color: var(--hex-hover-color) !important;
 }
 
 .hex.hover {
-	background-color: var(--hex-hover-color);
+	background-color: var(--hex-hover-color) !important;
 }
 
 .hex.hover:after {
-	border-left-color: var(--hex-hover-color);
+	border-left-color: var(--hex-hover-color) !important;
+}
+
+.hex span {
+	color: black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 30%;
+	width: 50%;
+	margin: -15% 0 0 -25%;
+	z-index: 1;
 }

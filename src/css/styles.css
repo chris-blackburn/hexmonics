@@ -1,1 +1,41 @@
-@import url("hex-tessellation.css");
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+
+@import url("hexagon.css");
+@import url("harmonic-table.css");
+@import url("control-panel.css");
+
+html {
+	/* prevent highlighting */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+            supported by Chrome and Opera */
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	color: #f1f2f2;
+	font-family: 'Baloo Bhaijaan', cursive;
+	background-color: #333;
+	padding: 0;
+	margin: 0;
+}
+
+.main {
+	height: 100%;
+	width: 100%;
+	display: table;
+}
+
+.wrapper {
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	overflow: auto;
+}

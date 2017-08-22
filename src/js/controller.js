@@ -9,10 +9,9 @@ $(document).mousedown(function() {
 });
 
 $(document).ready(function() {
-	createHarmonicTable();
-	initHexHover();
+	initView();
 
-	$(".hex").on("mousedown", function() {
+	$(".harmonic-table .hex").on("mousedown", function() {
 		synth.triggerAttack($(this).data("note"));
 	}).on("mouseup", function() {
 		synth.triggerRelease();
@@ -24,4 +23,3 @@ $(document).ready(function() {
 		}
 	});
 });
-
