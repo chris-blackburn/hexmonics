@@ -12,14 +12,14 @@ $(document).ready(function() {
 	initView();
 
 	$(".harmonic-table .hex").on("mousedown", function() {
-		synth.triggerAttack($(this).data("note"));
+		synth.triggerAttack($(this).attr("data-note"));
 	}).on("mouseup", function() {
 		synth.triggerRelease();
 	}).on("mouseleave", function() {
 		synth.triggerRelease();
 	}).on("mouseenter", function() {
 		if (mouseDown) {
-			synth.triggerAttack($(this).data("note"));
+			synth.triggerAttack($(this).attr("data-note"));
 		}
 	});
 });

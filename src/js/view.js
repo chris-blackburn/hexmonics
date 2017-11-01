@@ -1,9 +1,11 @@
+
+
 function initView() {
 	createHarmonicTable();
 	initHexHover();
 	initRangeLabels();
 	initActiveToolClick();
-	
+	showNotes();
 }
 
 function createHarmonicTable() {
@@ -75,6 +77,18 @@ function initActiveToolClick() {
 			$("#pattern-tools .hex").not(this).removeClass("active-tool");
 
 			$(this).addClass("active-tool");
+		}
+	});
+}
+
+function showNotes() {
+	$("#show-notes").on("change", function() {
+		if ($(this).is(":checked")) {
+			$(".harmonic-table .hex").each(function(index, element) {
+				$(this).children("span").text($(this).attr("data-note"));
+			});
+		} else {
+			$(".harmonic-table .hex > span").text("");
 		}
 	});
 }
