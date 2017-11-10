@@ -1,6 +1,7 @@
 
 
 function initView() {
+	resizeHexagons();
 	createHarmonicTable();
 	initHexHover();
 	initRangeLabels();
@@ -44,6 +45,18 @@ function createHarmonicTable() {
 		}
 	}
 }
+/*
+	Sizes each hexagon based off the window size
+*/
+function resizeHexagons() {
+	// The diameter of each hexagon is set to the window size divided by 27 (that was just a good number I found after playing around with it)
+	$("html").get(0).style.setProperty("--hex-diameter", "calc(" + ($(window).width() / 27) + "px)");
+}
+
+// set to update on resize
+$(window).resize(function() {
+	resizeHexagons();
+});
 
 /* 
 	Handles color changes when hovering over hexagons. 

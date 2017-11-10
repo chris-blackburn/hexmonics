@@ -69,6 +69,7 @@
 }
 
 .hex span {
+	font-size: calc(var(--hex-diameter) / 4);
 	color: black;
 	position: absolute;
 	top: 50%;

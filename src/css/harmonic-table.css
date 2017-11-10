@@ -1,7 +1,7 @@
 .harmonic-table {
 	margin: 1em;
 	height: 90%;
-	width: 80%;
+	width: 90%;
 	padding: calc(var(--hex-height) / 2) var(--hex-radius);
 	pointer-events: auto;
 	float: left;
